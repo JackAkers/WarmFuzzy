@@ -180,8 +180,10 @@ function sendEmail() {
 function sendEmail2() {
 
 	        Email.send({
-                SecureToken : "96b96004-3e2d-447b-82fd-1c40a450fffb",
-                To : Name,
+                Host: "smtp.gmail.com",
+                Username : "warm.fuzzies.bcm@gmail.com",
+                Password : "warmFuzzy116",
+		To : Name,
                 From : "warm.fuzzies.bcm@gmail.com",
                 Subject : "Your warm fuzzy!",
                 Body : WFBody.value,
