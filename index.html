@@ -1,0 +1,155 @@
+<html><head>
+	<script src="https://smtpjs.com/v3/smtp.js"></script>
+
+<style>
+.dropbtn {
+  background-color: #3498DB;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.dropbtn:hover, .dropbtn:focus {
+  background-color: #2980B9;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  overflow: auto;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown a:hover {background-color: #ddd;}
+
+.show {display: block;}
+</style>
+
+</head>
+
+<body>  
+
+<div class="dropdown">
+  <button onclick="openNames()" class="dropbtn" id="NameButton">Choose Name</button>
+  <div id="myDropdown" class="dropdown-content">
+    <input type="button" value="Jack School" onclick="setName('Jack School')">
+    <input type="button" value="Jack Home" onclick="setName('Jack Home')">
+    <input type="button" value="Mae" onclick="setName('Mae')">
+
+  </div>
+</div>
+
+<script>
+/* When the user clicks on the button, 
+toggle between hiding and showing the dropdown content */
+function openNames() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+</script>
+
+<br>
+<br>
+
+Message: <textarea id="WFBody">
+"Write your warm fuzzy here!"
+</textarea>
+<br>
+<br>
+
+	<form method="post">
+		<input type="button" value="Send Email" onclick="sendEmail()">
+	</form>  
+
+<script src="https://smtpjs.com/v3/smtp.js">
+</script>
+
+<script>
+
+var Name = "default"
+
+function setName(change) {
+        document.querySelector('#changed').innerHTML = "";
+        switch(change){
+            case "Jack School":
+                Name = "jaakers@email.wm.edu"
+                break;
+            case "Jack Home":
+                Name = "littleakers@gmail.com"
+                break;
+            case "Mae":
+                Name = "gmtilley@email.wm.edu"
+                break;
+        }
+        document.querySelector('#NameButton').innerHTML = change;
+
+}
+
+function sendEmail() {
+                document.querySelector('#changed').innerHTML = "";
+
+        if (Name == "default") {
+                document.querySelector('#changed').innerHTML = "Select a recipient";
+        } else {
+                document.querySelector('#changed').innerHTML = "Please wait";
+                sendEmail2()
+        }
+}
+
+function sendEmail2() {
+
+	        Email.send({
+                Host: "smtp.gmail.com",
+                Username : "warm.fuzzies.bcm@gmail.com",
+                Password : "warmFuzzy116",
+                To : Name,
+                From : "warm.fuzzies.bcm@gmail.com",
+                Subject : "Your warm fuzzy!",
+                Body : WFBody.value,
+                }).then(
+                       message => alert("Your message was sent!")
+                );
+                document.querySelector('#changed').innerHTML = "SENT";
+
+        
+
+
+}
+
+</script>
+
+<p id="changed"></p>
+
+
+
+</body></html>
