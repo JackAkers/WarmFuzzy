@@ -88,16 +88,8 @@
 <br>
 <br>
 <br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+	    
+<center>
 <div class="dropdown">
   <button onclick="openNames()" class="dropbtn" id="NameButton">Choose Name</button>
   <div id="myDropdown" class="dropdown-content">
@@ -107,7 +99,9 @@
 
   </div>
 </div>
-
+	
+</center>
+	    
 <script>
 /* When the user clicks on the button, 
 toggle between hiding and showing the dropdown content */
@@ -132,17 +126,23 @@ window.onclick = function(event) {
 
 <br>
 <br>
-
+	    
+<center>
 Message: <textarea id="WFBody">
 "Write your warm fuzzy here!"
 </textarea>
+
+</center>
+	
 <br>
 <br>
 
+<center>
 	<form method="post">
 		<input type="button" value="Send Email" onclick="sendEmail()">
 	</form>  
-
+</center>
+	
 <script src="https://smtpjs.com/v3/smtp.js">
 </script>
 
