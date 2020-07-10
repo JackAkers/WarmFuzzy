@@ -95,7 +95,9 @@
 
 
       <section id="main_content">
-        {{ <div class="dropdown">
+        {{ content }}
+      </section>
+<div class="dropdown">
   <button onclick="openNames()" class="dropbtn" id="NameButton">Choose Name</button>
   <div id="myDropdown" class="dropdown-content">
     <input type="button" value="Jack School" onclick="setName('Jack School')">
@@ -198,10 +200,7 @@ function sendEmail2() {
 </script>
 
 <p id="changed"></p>
-
- }}
-      </section>
-
+	    
       <footer>
         <span class="ribbon-outer">
           <span class="ribbon-inner">
